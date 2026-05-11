@@ -1,0 +1,40 @@
+{
+  "version": 1,
+  "author": "Дмитрий Карагеоз",
+  "editor": "wokwi",
+  "parts": [
+    {
+      "type": "board-esp32-s3-devkitc-1",
+      "id": "esp",
+      "top": 0,
+      "left": 0,
+      "attrs": { "builder": "esp-idf" }
+    },
+    {
+      "type": "chip-bme280",
+      "id": "chip",
+      "top": -58.24,
+      "left": 46,
+      "attrs": { "debug": "1", "debug_mask": "128", "sample_set_period": "50000" }
+    },
+    {
+      "type": "wokwi-logic-analyzer",
+      "id": "logic1",
+      "top": -143.65,
+      "left": -105.6,
+      "attrs": {}
+    }
+  ],
+  "connections": [
+    [ "chip:Vdd", "esp:3V3.1", "red", [ "h-265.69", "v325.53", "h292.06" ] ],
+    [ "chip:GND.1", "esp:GND.2", "black", [ "h-255.02", "v299.93", "h291.14" ] ],
+    [ "esp:11", "chip:SDI", "blue", [ "h60.77", "v-226.88" ] ],
+    [ "chip:GND.2", "chip:GND.1", "black", [ "h24.69", "v-31.54", "h-183.7", "v41.14" ] ],
+    [ "chip:SCK", "esp:12", "orange", [ "h77.89", "v246.89" ] ],
+    [ "esp:10", "chip:CS", "purple", [ "h46.84", "v-226.78" ] ],
+    [ "chip:SDO", "esp:13", "white", [ "h-49.71", "v30.58", "h239.89", "v187.61" ] ],
+    [ "chip:Vddio", "chip:Vdd", "red", [ "h12.2", "v-19.2" ] ]
+  ],
+  "dependencies": { "chip-bme280": "github:bonnyr/wokwi-bme280-custom-chip@0.0.25" }
+
+}
